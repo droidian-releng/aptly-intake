@@ -1,0 +1,2 @@
+/usr/lib/aptly-intake/aptly_import.py /usr/bin/aptly-intake-import
+/usr/lib/aptly-intake/aptly_intake_monitor.sh /usr/bin/aptly-intake-monitor

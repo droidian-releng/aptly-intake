@@ -1,0 +1,4 @@
+aptly_import.py /usr/lib/aptly-intake
+aptly_intake_monitor.sh /usr/lib/aptly-intake
+aptly_api/* /usr/lib/aptly-intake/aptly_api
+systemd/* /lib/systemd/system

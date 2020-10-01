@@ -1,0 +1,12 @@
+[Unit]
+Description=aptly package monitor
+Requires=aptly-api.service
+
+[Service]
+Type=simple
+User=aptly-api
+Group=aptly-api
+ExecStart=/usr/bin/aptly-intake-monitor /srv/aptly-queue
+
+[Install]
+WantedBy=multi-user.target

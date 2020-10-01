@@ -1,0 +1,25 @@
+Source: aptly-intake
+Maintainer: Eugenio Paolantonio (g7) <me@medesimo.eu>
+Section: misc
+Priority: optional
+Build-Depends: debhelper (>= 10),
+               dh-python,
+               python3
+Standards-Version: 4.5.0.3
+Vcs-Browser: https://github.com/hybris-mobian-releng/aptly-intake
+Vcs-Git: https://github.com/hybris-mobian-releng/aptly-intake.git
+
+Package: aptly-intake
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         aptly,
+         aptly-api,
+         python3-requests,
+         python3-debian,
+         inotify-tools
+Description: Intake for Debian packages
+ This packages provides a simple intake for Debian packages, and
+ uses aptly to publish a repository.
+ .
+ This package is meant to be used in a Docker container.
