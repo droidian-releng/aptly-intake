@@ -42,7 +42,7 @@ from contextlib import contextmanager
 
 from .api_mapping import AptlyAPISigningOptions, snake_to_camel, convert_param, aptly_mapping
 
-LOCK_FILE = "/run/aptly-api-lock"
+LOCK_FILE = "/run/aptly-intake/aptly-api-lock"
 
 @contextmanager
 def AptlyAPILock():
