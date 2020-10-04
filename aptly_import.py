@@ -109,13 +109,15 @@ if __name__ == "__main__":
 
 			full_filepath = os.path.join(base_directory, referenced_file["name"])
 
-			with open(full_filepath, "rb") as f:
+			with open(full_filepath, "r+b") as f:
 				print("Uploading %s" % full_filepath)
 				upload_directory.upload(f)
 
-			touched_components.add(component)
+				# Truncate rather than removing as we might not be
+				# able to write to the upload directory
+				f.truncate(0)
 
-			os.remove(full_filepath)
+			touched_components.add(component)
 
 		# Upload the changes file for every component
 		# FIXME: Is this wrong?
@@ -236,4 +238,5 @@ if __name__ == "__main__":
 				break
 
 	# Remove changes files
-	os.remove(changes_path)
+	with open(changes_path, "w") as f:
+		f.truncate(0)
