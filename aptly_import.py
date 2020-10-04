@@ -115,7 +115,7 @@ if __name__ == "__main__":
 
 			touched_components.add(component)
 
-			#os.remove(full_filepath)
+			os.remove(full_filepath)
 
 		# Upload the changes file for every component
 		# FIXME: Is this wrong?
@@ -235,3 +235,5 @@ if __name__ == "__main__":
 
 				break
 
+	# Remove changes files
+	os.remove(changes_path)
