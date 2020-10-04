@@ -1,0 +1,9 @@
+[Unit]
+Description=sync aptly uids and gids with the host
+
+[Service]
+Type=oneshot
+ExecStart=/usr/lib/aptly-intake/aptly_fix_uids_gids.sh
+
+[Install]
+WantedBy=multi-user.target aptly-api.service aptly-intake-monitor.service
