@@ -31,7 +31,7 @@ import os
 
 import sys
 
-import datetime
+import uuid
 
 import aptly_api
 
@@ -83,7 +83,7 @@ if __name__ == "__main__":
 	else:
 		raise Exception("No (or too many) .changes files has been specified")
 
-	run_timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+	run_uuid = uuid.uuid4()
 
 	with aptly_api.AptlySession("http://localhost:8080/") as session:
 
@@ -105,7 +105,7 @@ if __name__ == "__main__":
 				else "main"
 
 			# Create a new directory and upload every referenced file
-			upload_directory = session.Directory(dir="%s-%s" % (run_timestamp, component))
+			upload_directory = session.Directory(dir="%s-%s" % (run_uuid, component))
 
 			full_filepath = os.path.join(base_directory, referenced_file["name"])
 
@@ -122,7 +122,7 @@ if __name__ == "__main__":
 		# Upload the changes file for every component
 		# FIXME: Is this wrong?
 		for component in touched_components:
-			upload_directory = session.Directory(dir="%s-%s" % (run_timestamp, component))
+			upload_directory = session.Directory(dir="%s-%s" % (run_uuid, component))
 
 			with open(changes_path, "rb") as f:
 				print("Uploading changes file %s on touched component %s" % (changes_path, component))
@@ -167,7 +167,7 @@ if __name__ == "__main__":
 				print("Importing packages for component %s" % component)
 				res = session.RepositoryDirectory(
 					name=target_repository_name,
-					dir="%s-%s" % (run_timestamp, component)
+					dir="%s-%s" % (run_uuid, component)
 				).include()
 				print("Result of import is %s" % res)
 
@@ -175,7 +175,7 @@ if __name__ == "__main__":
 			# re-publish them
 			created_snapshots = []
 			for repo, component in repos.items():
-				snapshot_name = "%s_%s" % (repo, run_timestamp)
+				snapshot_name = "%s_%s" % (repo, run_uuid)
 				print("Creating snapshot for repo %s" % repo)
 				session.LocalRepo(name=repo).snapshot(snapshot_name)
 				created_snapshots.append(
