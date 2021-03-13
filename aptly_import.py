@@ -214,6 +214,7 @@ if __name__ == "__main__":
 						target_published_distribution.update(
 							snapshots=created_snapshots,
 							signing=signing_configuration,
+							force_overwrite=True,
 						)
 					except Exception as e:
 						if "not in published repository" in str(e):
@@ -233,6 +234,7 @@ if __name__ == "__main__":
 						origin=DEFAULT_VENDOR,
 						architectures=DEFAULT_ARCHITECTURES,
 						signing=signing_configuration,
+						force_overwrite=True,
 					)
 
 				break
