@@ -33,6 +33,8 @@ import sys
 
 import uuid
 
+import configparser
+
 import aptly_api
 
 from debian.deb822 import Changes
@@ -52,17 +54,25 @@ ALLOWED_DISTRIBUTIONS = [
 #  6. The new snapshots gets published
 #  7. Lock is released
 
-DEFAULT_VENDOR = os.environ.get(
+INTAKE_SETTINGS = "/var/lib/aptly-api/intake-settings"
+
+config = configparser.ConfigParser()
+config.read(INTAKE_SETTINGS)
+
+DEFAULT_VENDOR = config.get(
+	"Intake",
 	"APTLY_DEFAULT_VENDOR",
-	"hybris-mobian"
+	fallback="hybris-mobian"
 )
-DEFAULT_SIGNING_GPG_FINGERPRINT = os.environ.get(
+DEFAULT_SIGNING_GPG_FINGERPRINT = config.get(
+	"Intake",
 	"APTLY_SIGNING_GPG_FINGERPRINT",
-	"285771AC7747392A6371C1B9A1ED3DBEFB35F3C5"
+	fallback="285771AC7747392A6371C1B9A1ED3DBEFB35F3C5"
 )
-DEFAULT_SIGNING_GPG_KEYRING = os.environ.get(
+DEFAULT_SIGNING_GPG_KEYRING = config.get(
+	"Intake",
 	"APTLY_SIGNING_GPG_KEYRING",
-	"/var/lib/aptly-api/.gnupg/pubring.kbx"
+	fallback="/var/lib/aptly-api/.gnupg/pubring.kbx"
 )
 
 # FIXME?

@@ -26,8 +26,6 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-DEFAULTS_FILE="/var/lib/aptly-api/intake-settings"
-
 QUEUE_DIRECTORY="${1}"
 
 info() {
@@ -44,8 +42,6 @@ error() {
 }
 
 [ ! -e "${QUEUE_DIRECTORY}" ] && error "Unable to find specified queue directory"
-
-[ -e "${DEFAULTS_FILE}" ] && source "${DEFAULTS_FILE}"
 
 inotifywait \
 	--recursive \
