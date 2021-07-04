@@ -1,0 +1,8 @@
+[Unit]
+Description=Generate appstream metadata
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/appstream-generate
+User=aptly-api
+Group=aptly-api

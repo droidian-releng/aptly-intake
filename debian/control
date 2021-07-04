@@ -17,6 +17,8 @@ Depends: ${misc:Depends},
          aptly-api,
          python3-requests,
          python3-debian,
+         appstream-generator,
+         optipng,
          inotify-tools
 Description: Intake for Debian packages
  This packages provides a simple intake for Debian packages, and
