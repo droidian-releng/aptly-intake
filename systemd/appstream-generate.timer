@@ -1,0 +1,8 @@
+[Unit]
+Description=Periodically generate appstream metadata
+
+[Timer]
+OnCalendar=daily
+
+[Install]
+WantedBy=multi-user.target
