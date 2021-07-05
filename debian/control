@@ -17,6 +17,7 @@ Depends: ${misc:Depends},
          aptly-api,
          python3-requests,
          python3-debian,
+         python3-gpg,
          appstream-generator,
          optipng,
          inotify-tools
