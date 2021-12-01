@@ -41,6 +41,7 @@ from debian.deb822 import Changes
 
 ALLOWED_DISTRIBUTIONS = [
 	"bullseye",
+	"bookworm",
 ]
 
 # How does the publishing work:
