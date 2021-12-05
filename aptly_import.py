@@ -197,8 +197,8 @@ if __name__ == "__main__":
 				)
 
 			# Obtain the list of published repositories
-			channel_published = channel in [
-				x["Prefix"]
+			channel_published = (channel, distribution) in [
+				(x["Prefix"], x["Distribution"])
 				for x in session.PublishedRepo.list()
 			]
 
