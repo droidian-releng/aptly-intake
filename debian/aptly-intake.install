@@ -1,5 +1,6 @@
 aptly_import.py /usr/lib/aptly-intake
 aptly_new_snapshot.py /usr/lib/aptly-intake
+aptly_clean.py /usr/lib/aptly-intake
 aptly_intake_monitor.sh /usr/lib/aptly-intake
 aptly_fix_uids_gids.sh /usr/lib/aptly-intake
 aptly_api/* /usr/lib/aptly-intake/aptly_api

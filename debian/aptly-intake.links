@@ -1,3 +1,4 @@
 /usr/lib/aptly-intake/aptly_import.py /usr/bin/aptly-intake-import
 /usr/lib/aptly-intake/aptly_new_snapshot.py /usr/bin/aptly-new-snapshot
+/usr/lib/aptly-intake/aptly_clean.py /usr/bin/aptly-clean
 /usr/lib/aptly-intake/aptly_intake_monitor.sh /usr/bin/aptly-intake-monitor
