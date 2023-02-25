@@ -35,6 +35,8 @@ import apt_pkg
 
 import aptly_api
 
+import subprocess
+
 from functools import reduce
 
 def get_packages_to_remove(packages_per_arch, keep=3):
