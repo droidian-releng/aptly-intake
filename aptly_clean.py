@@ -39,6 +39,11 @@ import subprocess
 
 from functools import reduce
 
+EXTENDED_KEEP = [
+	"production_trixie_main",
+	"staging_trixie_main",
+]
+
 def get_packages_to_remove(packages_per_arch, keep=3):
 	"""
 	Returns a list of packages to remove.
@@ -86,7 +91,7 @@ if __name__ == "__main__":
 					arch, name, version, _ = ref.split(" ")
 					packages_per_arch.setdefault(arch, {}).setdefault(name, {})[version] = ref
 
-				to_remove = get_packages_to_remove(packages_per_arch)
+				to_remove = get_packages_to_remove(packages_per_arch, keep=(1 if not repository["Name"] in EXTENDED_KEEP else 3))
 
 				print("Repo: %s, removing: %s" % (repository["Name"], "\n    - ".join(to_remove)))
 
