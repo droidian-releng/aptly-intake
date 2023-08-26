@@ -5,7 +5,6 @@ Priority: optional
 Build-Depends: debhelper (>= 10),
                dh-python,
                python3,
-               python3-apt,
 Standards-Version: 4.5.0.3
 Vcs-Browser: https://github.com/hybris-mobian-releng/aptly-intake
 Vcs-Git: https://github.com/hybris-mobian-releng/aptly-intake.git
@@ -18,6 +17,7 @@ Depends: ${misc:Depends},
          aptly-api,
          python3-requests,
          python3-debian,
+         python3-apt,
          inotify-tools
 Description: Intake for Debian packages
  This packages provides a simple intake for Debian packages, and
