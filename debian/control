@@ -6,8 +6,8 @@ Build-Depends: debhelper (>= 10),
                dh-python,
                python3,
 Standards-Version: 4.5.0.3
-Vcs-Browser: https://github.com/hybris-mobian-releng/aptly-intake
-Vcs-Git: https://github.com/hybris-mobian-releng/aptly-intake.git
+Vcs-Browser: https://github.com/droidian-releng/aptly-intake
+Vcs-Git: https://github.com/droidian-releng/aptly-intake.git
 
 Package: aptly-intake
 Architecture: all

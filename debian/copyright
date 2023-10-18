@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: aptly-intake
-Source: https://github.com/hybris-mobian-releng/aptly-intake
+Source: https://github.com/droidian-releng/aptly-intake
 
 Files: *
 Copyright: 2020 Eugenio "g7" Paolantonio <me@medesimo.eu>
