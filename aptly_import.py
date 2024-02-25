@@ -43,6 +43,8 @@ ALLOWED_DISTRIBUTIONS = [
 	"bullseye",
 	"bookworm",
 	"trixie",
+	"sid",
+	"hotfixes",
 ]
 
 # How does the publishing work:
