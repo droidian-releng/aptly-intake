@@ -79,6 +79,12 @@ DEFAULT_SIGNING_GPG_KEYRING = config.get(
 	fallback="/var/lib/aptly-api/.gnupg/pubring.kbx"
 )
 
+DEFAULT_SIGNING_DISABLE_VERIFY_TRANSIT = config.getboolean(
+	"Intake",
+	"APTLY_SIGNING_DISABLE_VERIFY_TRANSIT",
+	fallback=False
+)
+
 # FIXME?
 DEFAULT_ARCHITECTURES = [
 	"source",
@@ -182,7 +188,7 @@ if __name__ == "__main__":
 				res = session.RepositoryDirectory(
 					name=target_repository_name,
 					dir="%s-%s" % (run_uuid, component)
-				).include()
+				).include(accept_unsigned=DEFAULT_SIGNING_DISABLE_VERIFY_TRANSIT)
 				print("Result of import is %s" % res)
 
 			# Local repo is ok now, snapshot every repository and
