@@ -44,6 +44,13 @@ from .api_mapping import AptlyAPISigningOptions, snake_to_camel, convert_param, 
 
 LOCK_FILE = "/run/aptly-intake/aptly-api-lock"
 
+def decapitalize(string):
+	"""
+	De-capitalizes a string.
+	"""
+
+	return string[:1].lower() + string[1:] if string else ""
+
 @contextmanager
 def AptlyAPILock():
 	if os.path.exists(LOCK_FILE):
@@ -205,11 +212,11 @@ class AptlySession(requests.Session):
 		body_params = {
 			x : convert_param(y, merged_params_description[x]) 
 			for x,y in final_kwargs.items()
-			if not y is None
+			if not y is None and x in merged_params_description
 		}
 		query_params = {
 			x : convert_param(y, description.query_params[x])
-			for x,y in final_kwargs.items()
+			for x,y in ((decapitalize(z), w) for z,w in final_kwargs.items())
 			if not y is None and x in description.query_params
 		}
 
