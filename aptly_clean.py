@@ -39,12 +39,7 @@ import subprocess
 
 from functools import reduce
 
-EXTENDED_KEEP = [
-	"production_trixie_main",
-	"staging_trixie_main",
-	"production_sid_main",
-	"staging_sid_main",
-]
+EXTENDED_KEEP = []
 
 def get_packages_to_remove(packages_per_arch, keep=3):
 	"""
